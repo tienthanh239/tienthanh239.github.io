@@ -1,18 +1,16 @@
 .panel {
     width: 60%;
     margin: 0 auto;
-    /* border: solid blue; */
+     border: solid blue; 
     /* text-align: center; */
 }
 
-.container {
-    /* display: inline-block; */
-}
+
 
 .panel2 {
     width: 60%;
     margin: 0 auto;
-    /* border: solid blue; */
+    border: none;
 }
 
 .panel-heading {
@@ -63,5 +61,6 @@ table {
 .panel {
     margin: 0 auto;
     width: 100%;
+    border: none;
 }
 }
