@@ -1,90 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PTT</title>
-    <link rel="stylesheet"  href="23.css" >  
+    <link rel="stylesheet" href="23.css" />
 </head>
+
 <body>
-    
     <div class="panel">
-        <div class="panel-heading">
-            input product detail information  
-            <!-- nhập thông tin chi tiết sản phẩm -->
+        <div class="container">
+            <div class="panel-heading">
+                input product detail information
+                <!-- nhập thông tin chi tiết sản phẩm -->
+            </div>
+
+            <div class="panel-body">
+                <form method="post">
+                    <div class="form-group">
+                        <label> Product Name: </label>
+                        <!--tên sản phẩm -->
+                        <input type="number" name="index" id="index" value="" hidden="true" />
+                        <!--ẩn-->
+                        <input class="form-control" type="text" name="product_name" id="product_name"
+                            placeholder="enter product name " />
+                    </div>
+
+                    <div class="form-group">
+                        <label> Manufacturer Name: </label>
+                        <!--tên nhà sản xuất-->
+                        <select class="form-control" id="manufacture_name" onchange="changemanufacture()">
+                            <!--tạo sự kiện thay đổi dữ liệu-->
+                            <option value="">--choose--</option>
+                            <!--chọn-->
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label> Category Name: </label>
+                        <!--tên danh mục-->
+                        <select class="form-control" id="category_name"></select>
+                    </div>
+
+                    <div class="form-group">
+                        <label> Price : </label>
+                        <!--giá-->
+                        <input class="form-control" type="number" name="price_" id="price" value="0"
+                            onkeyup="updateTotalPrice() " />
+                    </div>
+
+                    <div class="form-group">
+                        <label> Quantity: </label>
+                        <!--Định lượng-->
+                        <input class="form-control" type="text" name="quantity_" id="quantity" value="0"
+                            onkeyup="updateTotalPrice() " />
+                    </div>
+
+                    <div class="form-group">
+                        <label> Total price: </label>
+                        <!--tổng giá-->
+                        <input class="form-control" type="text" name="Total_price_" id="Total_price" value="0"
+                            disabled="true" />
+                    </div>
+
+                    <div class="form-group">
+                        <button class="btn-success" type="button" onclick="addProduct()">
+                            Add Produce
+                        </button>
+                        <button class="btn-danger" type="reset">Reset</button>
+                    </div>
+                </form>
+            </div>
         </div>
-
-        <div class="panel-body">
-            <form method="post">
-                <div class="form-group">
-                    <label> Product Name: </label> <!--tên sản phẩm -->
-                    <input type="number" name="index" id="index" value="" hidden="true">  <!--ẩn-->
-                    <input class="form-control" type="text" name="product_name" id="product_name"
-                    placeholder="enter product name ">                  
-                </div>
-
-                <div class="form-group">
-                    <label> Manufacturer Name: </label> <!--tên nhà sản xuất-->
-                    <select class="form-control" id="manufacture_name" onchange="changemanufacture()"> 
-                                                                    <!--tạo sự kiện thay đổi dữ liệu-->
-                        <option value="">--choose--</option>  <!--chọn-->
-                    </select>                 
-                </div>
-
-                <div class="form-group">
-                    <label> Category Name: </label> <!--tên danh mục-->
-                    <select class="form-control"  id="category_name"></select>                            
-                </div>
-
-                <div class="form-group">
-                    <label> Price : </label>  <!--giá-->
-                    <input class="form-control" type="number" name="price_" id="price" value = "0" onkeyup="updateTotalPrice() ">                 
-                </div>
-
-                <div class="form-group">
-                    <label> Quantity: </label>  <!--Định lượng-->
-                    <input class="form-control" type="text" name="quantity_" id="quantity" value = "0" onkeyup="updateTotalPrice() " >          
-                </div>
-
-                <div class="form-group">
-                    <label> Total price: </label> <!--tổng giá-->
-                    <input class="form-control" type="text" name="Total_price_" id="Total_price" value = "0" disabled="true">                  
-                </div>
-
-                <div class="form-group">
-                   <button class="btn-success" type="button" onclick="addProduct()" >Add Produce </button> 
-                   <button class="btn-danger" type="reset" > Reset </button>
-                </div>
-
-            </form>
-        </div>
-
     </div>
 
     <!--tạo bảng -->
-    <div class="panel" style="margin-top : 20px" >
-        <div class="panel-heading"> Product list</div>
-        <div class="panel-body"> 
+    <div class="panel2" style="margin-top: 20px">
+        <div class="panel-heading">Product list</div>
+        <div class="panel-body">
             <table class="table">
                 <thead>
-                    <tr> 
-                        <th> NO </th>
-                        <th> Product name</th> <!--tên sp-->
-                        <th> Manufacturer name</th> <!--tên nsx-->
-                        <th> Category name</th> <!--tên danh mục sp-->
-                        <th> Price </th> <!--giá-->
+                    <tr>
+                        <th>NO</th>
+                        <th>Product name</th>
+                        <!--tên sp-->
+                        <th>Manufacturer name</th>
+                        <!--tên nsx-->
+                        <th>Category name</th>
+                        <!--tên danh mục sp-->
+                        <th>Price</th>
+                        <!--giá-->
                         <th>Quantity</th>
-                        <th> Total price </th> <!--tổng giá-->
+                        <th>Total price</th>
+                        <!--tổng giá-->
                         <th></th>
                         <th></th>
                     </tr>
                 </thead>
-                <tbody id="result" class="result">
-                    
-                </tbody>
+                <tbody id="result" class="result"></tbody>
             </table>
         </div>
     </div>
-    <script type="text/javascript" src="myscript/MyScript.js"> </script>
+    <script type="text/javascript" src="myscript/MyScript.js"></script>
 </body>
+
 </html>

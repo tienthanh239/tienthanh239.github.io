@@ -1,7 +1,18 @@
 .panel {
     width: 60%;
     margin: 0 auto;
-    border: solid blue;
+    /* border: solid blue; */
+    /* text-align: center; */
+}
+
+.container {
+    /* display: inline-block; */
+}
+
+.panel2 {
+    width: 60%;
+    margin: 0 auto;
+    /* border: solid blue; */
 }
 
 .panel-heading {
@@ -41,10 +52,16 @@ table {
 @media screen and (max-width: 600px) {
     * {}
 
+.panel2 {
+    width: 116%;
+}
+
     .panel {
-        width: 110%;
-        /* padding-left: 6%; */
+        /* width: 80%; */
     }
 
-
+.panel {
+    margin: 0 auto;
+    width: 100%;
+}
 }
